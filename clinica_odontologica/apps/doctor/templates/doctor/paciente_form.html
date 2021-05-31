@@ -1,0 +1,158 @@
+{% extends 'base2.html' %}
+{% block content %}
+<div class="contenedor">
+    <div class="row">
+        <form class="col s12" method="POST">
+            <div class="row">
+                {% csrf_token %}
+                <ul id="tabs-swipe-demo" class="tabs">
+                    <li class="tab col s4"><a class="active" href="#test-swipe-1">
+                            <h9 class="cyan-text text-darken-3">Información Personal</h9>
+                        </a></li>
+                    <li class="tab col s4"><a class="cyan-text text-darken-3" href="#test-swipe-2">Información
+                            clínica</a></li>
+                    <li class="tab col s4"><a class="cyan-text text-darken-3" href="#test-swipe-3">Referencias</a></li>
+                </ul>
+                <div id="test-swipe-1" class="col s12">
+                    <br>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">face</i>
+                        <input id="nombres" name="nombres" type="text" class="validate"
+                            pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"
+                            required="requerid">
+                        <label for="nombres">Nombres</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="apellidos" name="apellidos" type="text" class="validate"
+                            pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"
+                            required="requerid">
+                        <label for="apellidos">Apellidos</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">date_range</i>
+                        <input id="fecha_nacimiento" name="fecha_nacimiento" required="requerid" type="text"
+                            class="datepicker">
+                        <label for="fecha_nacimiento">Fecha Nacimiento</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">wc</i>
+                        <select id="genero" name="genero" required="requerid">
+                            <option value="" disabled selected>Escoge un genero</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+
+                        </select>
+                        <label for="genero">Género</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">contact_phone</i>
+                        <input required="requerid" id="telefono" name="telefono" type="text" class="validate">
+                        <label for="telefono" id="errorTelefono">Teléfono</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">location_on</i>
+                        <input required="requerid" id="direccion" name="direccion" type="text" class="validate">
+                        <label for="direccion">Dirección</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">email</i>
+                        <input id="correo_electronico" name="correo_electronico" type="text" class="validate">
+                        <label for="correo_electronico">Correo Electronico</label>
+                    </div>
+
+                </div>
+                <div id="test-swipe-2" class="col s12">
+                    <br>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">fitness_center</i>
+                        <input id="peso" step=".01" required="requerid" name="peso" type="number" class="validate">
+                        <label for="peso" id="errorPeso">Peso (lb)</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">favorite</i>
+                        <input id="pulso" required="requerid" name="pulso" type="number" class="validate">
+                        <label for="pulso" id="errorPulso">Pulso (Latidos/Minuto)</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">whatshot</i>
+                        <input required="requerid" id="temperatura" name="temperatura" type="number" class="validate"
+                            step=".01">
+                        <label for="temperatura" id="errorTemperatura">Temperatura (°C)</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">import_export</i>
+                        <input id="presion_arterial" name="presion_arterial" type="number" class="validate">
+                        <label for="presion_arterial" id="errorPresion">Presión Arterial (mmHg)</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">healing</i>
+                        <input id="enfermedades" name="enfermedades" type="text" class="validate">
+                        <label for="enfermedades">Enfermedades preexistentes</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">bug_report</i>
+                        <input id="alergias" name="alergias" type="text" class="validate">
+                        <label for="alergias">Alergias</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">local_hospital</i>
+                        <input id="medicamentos" name="medicamentos" type="text" class="validate">
+                        <label for="medicamentos">Medicamentos actuales</label>
+                    </div>
+                </div>
+                <div id="test-swipe-3" class="col s12">
+                    <br>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">face</i>
+                        <input id="nombre_medico" name="nombre_medico"
+                            pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"
+                            type="text" class="validate">
+                        <label for="nombre_medico">Nombre del médico principal</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">settings_phone</i>
+                        <input id="telefono_medico" name="telefono_medico" type="text" class="validate">
+                        <label for="telefono_medico" id="errorTelefono_medico">Teléfono del médico</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">supervised_user_circle</i>
+                        <input id="persona_refiere" name="persona_refiere"
+                            pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"
+                            type="text" class="validate">
+                        <label for="persona_refiere">Persona que lo refiere</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">visibility</i>
+                        <input id="observaciones" name="observaciones" type="text" class="validate">
+                        <label for="observaciones">Observaciones</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s10"></div>
+                <div class="col s2">
+                    <button data-target="confirmar" class="btn waves-effect waves-light modal-trigger">Guardar
+                        <i class="material-icons right">send</i>
+                    </button>
+
+                    <!-- Modal Structure -->
+                    <div id="confirmar" class="modal">
+                        <div class="modal-content">
+                            <h4>¿Desea Guardar los Datos?</h4>
+                            <p>Presione ESC si desea cancelar.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="pacienteFormBtn" class="waves-effect waves-green btn-flat"
+                                type="submit">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

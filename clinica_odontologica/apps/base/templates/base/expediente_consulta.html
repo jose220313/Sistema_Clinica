@@ -1,0 +1,50 @@
+{% for expediente in SignosVitales %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h4 >Consulta de {{ expediente.id_paciente.nombres }} {{ expediente.id_paciente.apellidos }}</h4><br>
+        </div>
+        <div class="col s6">
+            <p><b>Peso: </b>{{ expediente.peso }}</p>
+        </div>
+        <div class="col s6">
+            <p><b>Pulso: </b>{{ expediente.pulso}}</p>
+        </div>
+        <div class="col s6">
+            <p><b>Temperatura: </b>{{ expediente.temperatura }}</p>
+        </div>
+        <div class="col s6">
+            <p><b>P. Arterial: </b>{{ expediente.presion_arterial}}</p>
+        </div>
+        <div class="col s6">
+            <p><b>Enferemades Pre. : </b>{{ expediente.enfermedades }}</p>
+        </div>
+        <div class="col s6">
+            <p><b>Alergias: </b>{{ expediente.alergias }}</p>
+        </div>
+        <div class="col s6">
+            <p><b>Medicamentos: </b>{{ expediente.medicamentos }}</p>
+        </div>
+        
+        <div class="col s6">
+            <p><b>Tipo de Consulta: </b>{{ expediente.tipo_consulta }}</p><br>
+        </div>
+        <div class="col s12">
+            <p><b>Diagnostico: </b>{{ expediente.diagnostico}}</p><br>
+        </div>
+        <div class="col s12">
+            <p><b>Doctor: </b>{{ expediente.id_empleado.nombres_empleado }} {{ expediente.id_empleado.apellidos_empleado }}</p><br>
+        </div>
+        <div class="col s12">
+            <p><b>Receta: </b>{{ expediente.receta}}</p><br>
+        </div>
+        <div class="col s12">
+            <p><b>Fecha de Consulta : </b>{{ expediente.fecha_hora }}</p><br>
+        </div>
+       
+    </div>
+</div>
+
+{% endfor %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="contenedor">
+    <h4>Citas de Pacientes</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Cita</th>
+                 <th>Nombre del Paciente</th>
+                 <th>Teléfono del Paciente</th>
+                <th>Motivo de Consulta</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for citas in object_list %}
+            <tr>
+                <td>{{ citas.id_cita }}</td>
+                <td>{{ citas.nombres}} {{ citas.apellidos}}</td>
+                <td>{{ citas.telefono }}</td>
+                <td>{{ citas.motivo_consulta }}</td>
+                <td>{{ citas.fecha }}</td>
+                <td>{{ citas.hora }}</td>
+                <td>
+                  <a href="{% url 'ActualizarCita_Cirujano' citas.id_cita %}">
+                        <i class="material-icons">create</i>
+                     </a> 
+                    <a href="{% url 'BorrarCita_Cirujano' citas.id_cita %}" class="red-text">
+                        <i class="material-icons">delete</i>
+                     </a>  
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

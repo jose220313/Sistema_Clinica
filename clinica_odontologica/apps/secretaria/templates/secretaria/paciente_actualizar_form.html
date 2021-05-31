@@ -1,0 +1,52 @@
+{% extends 'base1.html' %}
+{% block content %}
+<div class="contenedor">
+    <form class="col s12" method="POST">
+        <div class="modal-content">
+            <h4>Actualizando Paciente</h4>
+            <div class="row">
+                {% csrf_token %}
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">person</i>
+                    {{form.id_paciente}}
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">face</i>
+                    {{form.nombres}}
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    {{form.apellidos}}
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">date_range</i>
+                    {{form.fecha_nacimiento}}
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">wc</i>
+                    {{form.genero}}
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">contact_phone</i>
+                    {{form.telefono}}
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">location_on</i>
+                    {{form.direccion}}
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">email</i>
+                    {{form.correo_electronico}}
+                </div>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-floating btn-small waves-effect waves-light prefix">
+                <i class="material-icons">add</i>
+            </button>
+        </div>
+
+    </form>
+</div>
+{% endblock %}

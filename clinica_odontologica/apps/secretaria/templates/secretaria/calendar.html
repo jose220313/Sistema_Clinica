@@ -1,0 +1,55 @@
+{% load static %}
+<html>
+<head>
+    <title>Agenda Eléctronica</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'ico/tooth.png'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            var calendar = $('#calendar').fullCalendar({
+                defaultTimedEventDuration: '01:00:00',
+                forceEventDuration: true,
+                hiddenDays:[0],
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                events: [
+                    {% for cita in citas %}
+                        {
+                            title: "ID de CITA: "+"{{cita.id_cita}}"+" | MOTIVO: "+"{{cita.motivo_consulta}}" + " | NOMBRES: "+"{{cita.nombres}}"+" "+"{{cita.apellidos}}",
+                            start: "{{cita.fecha|date:'Y-m-d'}}"+" "+"{{cita.hora|date:'H:i:s'}}",
+                            allDay:false,
+                            id:"{{cita.id_cita}}"
+                        },
+                    {% endfor %}
+                ],
+                selectable: true,
+                selectHelper: true,
+                editable: true,
+                eventLimit: true,
+                minTime: '06:00:00',
+                maxTime: '19:00:00',
+
+            });
+        });
+
+    </script>
+</head>
+<body>
+<br/>
+<h2 align="center"><a href="#"> CITAS
+</a></h2>
+<br/>
+<div class="container">
+    <div id="calendar"></div>
+</div>
+</body>
+</html>

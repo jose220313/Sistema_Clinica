@@ -1,0 +1,191 @@
+@font-face {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap&family=Quicksand:wght@300;400;500&display=swap');
+
+
+}
+
+:root {
+    --monserrat: 'Montserrat', sans-serif;
+    --quicksand: 'Quicksand', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.fondo-login {
+    position: fixed;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+
+.contenedor {
+    position: fixed;
+    width: 50%;
+    height: 676px;
+    left: 43%;
+}
+
+.lema {
+    position: relative;
+    width: 80%;
+    text-align: center;
+    margin: 100px auto;
+}
+
+.lema h3 {
+    font-family: var(--monserrat);
+    font-size: 75px;
+    color: #2D2D2D;
+    letter-spacing: 5px;
+}
+
+.lema h6 {
+    font-family: var(--monserrat);
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: 5px;
+    color: #666666;
+}
+
+.formulario-logueo {
+    position: relative;
+    width: 60%;
+    height: auto;
+    padding: 15px;
+    margin: 100px auto;
+    bottom: 85px;
+}
+
+.formulario-logueo form h4 {
+    font-family: var(--monserrat);
+    font-size: 20px;
+    font-weight: 400;
+    color: #999999;
+    text-align: center;
+    padding: 25px;
+}
+
+/*
+.formulario-logueo form .usuario {
+    position: relative;
+    width: 100%;
+    height: 25px;
+    border: none;
+    border-radius: 12px;
+    background: #E4F9FB;
+    padding: 5px;
+    font-family: var(--quicksand);
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.formulario-logueo form .usuario::-webkit-input-placeholder {
+    padding: 15px;
+    font-weight: 400;
+}
+
+.formulario-logueo form .password {
+    position: relative;
+    width: 100%;
+    height: 25px;
+    border: none;
+    border-radius: 12px;
+    background: #E4F9FB;
+    padding: 5px;
+    font-family: var(--quicksand);
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.formulario-logueo form .password::-webkit-input-placeholder {
+    padding: 15px;
+    font-weight: 400;
+    
+}
+*/
+.formulario-logueo form input:focus,
+.formulario-logueo form input.usuario:focus {
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.formulario-logueo form .input-personalizado {
+    position: relative;
+    width: 100%;
+    height: 25px;
+    background: #E4F9FB;
+    padding: 6px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.formulario-logueo form .input-personalizado .usuario {
+    position: absolute !important;
+    width: 50%;
+    border: none;
+    border-radius: 12px;
+    background: #E4F9FB;
+    padding: 5px;
+    font-family: var(--quicksand);
+    font-weight: 300;
+}
+
+.formulario-logueo form .input-personalizado .password {
+    position: absolute;
+    width: 50%;
+    border: none;
+    border-radius: 12px;
+    background: #E4F9FB;
+    padding: 5px;
+    font-family: var(--quicksand);
+    font-weight: 300;
+}
+
+.formulario-logueo form .input-personalizado span {
+    color: #CCCCCC;
+}
+
+.formulario-logueo form .boton {
+    position: relative;
+    width: 270px;
+    height: 45px;
+    border: none;
+    border-radius: 50px;
+    margin: auto 70px;
+    background: #A7EBF2;
+    background: -webkit-linear-gradient(to left, #A7EBF2, #7ED1F2);
+    background: linear-gradient(to right, #A7EBF2, #7ED1F2);
+    color: #fff;
+    transition: all .3s;
+}
+
+.formulario-logueo form .boton:hover {
+    cursor: pointer;
+    background: #36D1DC;
+    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+    background: linear-gradient(to right, #5B86E5, #36D1DC);
+}
+
+.cajaError{
+    background: #FFEBEE;
+    border-radius: 8px;
+    height: 30px;
+    padding: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: rgb(236, 87, 87);
+}
+.cajaError .title-error{
+    position: relative;
+    float: left;
+}

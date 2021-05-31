@@ -1,0 +1,42 @@
+{% extends 'base1.html' %}
+{% block content%}
+<div class="contenedor">
+    <table id="example" class="display highlight" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Genero</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Correo</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paciente in pacientes %}
+            <tr style="font-family: 'Arial'; font-size: 14px;">
+                <td>{{ paciente.id_paciente }}</td>
+                <td>{{ paciente.nombres }}</td>
+                <td>{{ paciente.apellidos }}</td>
+                <td>{{ paciente.fecha_nacimiento }}</td>
+                <td>{{ paciente.genero }}</td>
+                <td>{{ paciente.telefono }}</td>
+                <td>{{ paciente.direccion }}</td>
+                <td>{{ paciente.correo_electronico }}</td>
+                <td>
+                    <a class="modal-trigger" href="{% url 'ActualizarPaciente' paciente.id_paciente %}" style="color:rgb(53, 52, 52)">
+                        <i class=" material-icons">create</i>
+                    </a>
+                    <a href="{% url 'AgregarExpediente' paciente.id_paciente %}" style="color:rgb(53, 52, 52)">
+                        <i class="material-icons">local_hospital</i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

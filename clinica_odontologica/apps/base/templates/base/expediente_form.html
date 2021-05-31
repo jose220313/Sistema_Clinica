@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class='contenedor'>
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s4"><a class="active" href="#General">General</a></li>
+                <li class="tab col s4"><a href="#Quirurgico">Quirurgico</a></li>
+                <li class="tab col s4"><a href="#noQuirurgico">No Quirurgico</a></li>
+            </ul>
+        </div>
+        <div id="General" class="col s12">
+            <div class="row">
+                {% for expediente in general %}
+                {% if expediente.tipo_consulta %}
+                <div class="col s4 m6">
+                    <div class="card">
+                        <div class="card-content teal lighten-4">
+                            <span class="card-title">Expediente
+                                {{ expediente.id_paciente.nombres }}
+                                {{ expediente.id_paciente.apellidos }}
+                            </span>
+                            <p>Tipo de Consulta: {{ expediente.tipo_consulta }} </p>
+                            <p>Fecha de Creación: {{ expediente.fecha_hora }} </p>
+                        </div>
+                        <div class="card-action">
+                            <a  onclick="modal_consulta('{% url 'ExpedienteConsulta_cirujano' expediente.id_expediente %}')"
+                                class="teal-text text-Darken-2" style="cursor: pointer;">Ver
+                                Consulta</a>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="col s4 m6">
+                    <div class="card">
+                        <div class="card-content red lighten-3">
+                            <span class="card-title ">Expediente
+                                {{ expediente.id_paciente.nombres }}
+                                {{ expediente.id_paciente.apellidos }}
+                            </span>
+                            <p>Fecha de Creación: {{ expediente.fecha_hora }} </p>
+                        </div>
+                        <div class="card-action">
+                            <a onclick="modal_signos_vitales('{% url 'SignosVitales_cirujano' expediente.id_expediente %}')"
+                                class="teal-text text-Darken-2" style="cursor: pointer;">Ver
+                                Expediente</a>
+                            <a onclick="modal_observaciones('{% url 'ExpedienteUpdate_cirujano' expediente.id_expediente %}')"
+                                class="teal-text text-Darken-2" style="cursor: pointer;">Consulta Medica</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div id="Quirurgico" class="col s12">
+            <div class="row">
+                {% for expediente in quirurgico %}
+                {% if expediente.tipo_consulta %}
+                <div class="col s4 m6">
+                    <div class="card">
+                        <div class="card-content teal lighten-4">
+                            <span class="card-title">Expediente
+                                {{ expediente.id_paciente.nombres }}
+                                {{ expediente.id_paciente.apellidos }}
+                            </span>
+                            <p>Tipo de Consulta: {{ expediente.tipo_consulta }} </p>
+                            <p>Fecha de Creación: {{ expediente.fecha_hora }} </p>
+                        </div>
+                        <div class="card-action">
+                            <a onclick="modal_consulta('{% url 'ExpedienteConsulta_cirujano' expediente.id_expediente %}')"
+                                class="teal-text text-Darken-2" style="cursor: pointer;">Ver
+                                Consulta</a>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="col s4 m6">
+                    <div class="card">
+                        <div class="card-content red lighten-3">
+                            <span class="card-title ">Expediente
+                                {{ expediente.id_paciente.nombres }}
+                                {{ expediente.id_paciente.apellidos }}
+                            </span>
+                            <p>Fecha de Creación: {{ expediente.fecha_hora }} </p>
+                        </div>
+                        <div class="card-action">
+                            <a onclick="modal_signos_vitales('{% url 'SignosVitales_cirujano' expediente.id_expediente %}')"
+                                class="teal-text text-Darken-2" style="cursor: pointer;">Ver
+                                Expediente</a>
+                            <a onclick="modal_observaciones('{% url 'ExpedienteUpdate_cirujano' expediente.id_expediente %}')"
+                                class="teal-text text-Darken-2" style="cursor: pointer;">Consulta Medica</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div id="noQuirurgico" class="col s12">
+            <div class="row">
+                {% for expediente in noQuirurgico %}
+                {% if expediente.tipo_consulta %}
+                <div class="col s4 m6">
+                    <div class="card">
+                        <div class="card-content teal lighten-4">
+                            <span class="card-title">Expediente
+                                {{ expediente.id_paciente.nombres }}
+                                {{ expediente.id_paciente.apellidos }}
+                            </span>
+                            <p>Tipo de Consulta: {{ expediente.tipo_consulta }} </p>
+                            <p>Fecha de Creación: {{ expediente.fecha_hora }} </p>
+                        </div>
+                        <div class="card-action">
+                            <a onclick="modal_consulta('{% url 'ExpedienteConsulta_cirujano' expediente.id_expediente %}')"
+                                class="teal-text text-Darken-2" style="cursor: pointer;">Ver
+                                Consulta</a>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="col s4 m6">
+                    <div class="card">
+                        <div class="card-content red lighten-3">
+                            <span class="card-title ">Expediente
+                                {{ expediente.id_paciente.nombres }}
+                                {{ expediente.id_paciente.apellidos }}
+                            </span>
+                            <p>Fecha de Creación: {{ expediente.fecha_hora }} </p>
+                        </div>
+                        <div class="card-action">
+                            <a onclick="modal_signos_vitales('{% url 'SignosVitales_cirujano' expediente.id_expediente %}')"
+                                class="teal-text text-Darken-2" style="cursor: pointer;">Ver
+                                Expediente</a>
+                            <a onclick="modal_observaciones('{% url 'ExpedienteUpdate_cirujano' expediente.id_expediente %}')"
+                                class="teal-text text-Darken-2" style="cursor: pointer;">Consulta Medica</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="observaciones" class="modal observaciones"></div>
+<div id="signosVitales" class="modal signosVitales"></div>
+<div id="consulta" class="modal signosVitalesCirujano"></div>
+{% endblock %}

@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O DENTISTA</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'ico/tooth.png'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/tab.css' %}" media="screen,projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+</head>
+
+<body>
+
+    <div class="menu-lateral">
+        <div class="logo">
+            <a href="{%url 'Index_Cirujano'%}"> <img src="{% static 'Resources/icons/Logo.svg' %}"> </a>
+            <h4>O DENTISTA</h4>
+            <p>SOMOS EL PUENTE A UNA NUEVA SONRISA</p>
+        </div>
+        <div class="opciones">
+            <a href="{% url 'Paciente_Cirujano' %}">
+                <img src="{% static 'Resources/icons/Paciente.svg'%}">
+                <li><span>Pacientes</span></li>
+            </a>
+            <a href="{% url 'Cita_Cirujano' %}">
+                <img src="{% static 'Resources/icons/CrearCita.svg'%}">
+                <li><span>Crear Cita</span></li>
+            </a>
+            <a href="{% url 'VerPaciente_Cirujano' %}">
+                <img src="{% static 'Resources/icons/Expediente.svg'%}">
+                <li><span>Expedientes</span></li>
+            </a>
+            <a href="{% url 'calendar_Cirujano' %}">
+                <img src="{% static 'Resources/icons/calendar.svg' %}">
+                <li><span>Agenda Electrónica</span></li>
+            </a>
+        </div>
+    </div>
+
+    <nav class="cyan darken-3" role="navegation">
+        <div class="nav-wrapper">
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li> <i class="material-icons prefix">person</i></li>
+                <li> {{user.first_name | upper}} {{user.last_name | upper}} </li>
+                <li> <a href="{%url 'logout' %}"><i class="material-icons prefix">input</i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    {% block content %}
+
+    {% endblock %}
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{% static 'js/funciones.js' %}"></script>
+    <script src="{% static 'js/validaciones.js' %}"></script>
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        var $ = jQuery.noConflict();
+
+        function modal_deleteCita(url) {
+            $('#deleteCita').load(url, function () {
+                $(this).modal('open')
+            });
+        };
+        function modal_observaciones(url) {
+            $('#observaciones').load(url, function () {
+                $(this).modal('open')
+            });
+        };
+        function modal_signos_vitales(url) {
+            $('#signosVitales').load(url, function () {
+                $(this).modal('open')
+            });
+        };
+        function modal_consulta(url) {
+            $('#consulta').load(url, function () {
+                $(this).modal('open')
+            });
+        };
+        
+        $(document).ready(function () {
+            $('#id_paciente').autocomplete({
+                data: {
+                    {% for p in Pacientes %}
+                    '{{ p.id_paciente }} | {{ p.nombres }} {{ p.apellidos }}': null,
+                    {% endfor %}
+                },
+            });
+            $('#id_empleado').autocomplete({
+                data: {
+                    {% for e in Empleados %}
+                    '{{ e.id_empleado }}': null,
+                    {% endfor %}
+                },
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+
+<div class ="contenedor">
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2 card-panel lime lighten-5 z-depth-5">GUIA BASICA DOCTOR</h1>
+        <div class="row center light z-depth-4">
+          <h5 class="header col s12 teal-text">TOMA EN CUENTA LO SIGUIENTE PARA EL MANEJO DE INFORMACION</h5>
+        </div>
+        <br><br>
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static 'img/clinica3.jpg' %}" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+    <div class="section">
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center black-text"><i class=" medium material-icons">person_add</i></h2>
+            <h5 class="center">Agregar Paciente</h5>
+
+            <p class="light" align='justify'>Para agregar un paciente, nos dirigimos al panel de navegación que se encuentra en el lado izquierdo. El apartado para agregar paciente se llama <b>Pacientes</b>  </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class=" medium material-icons">create</i></h2>
+            <h5 class="center">Modificar Paciente</h5>
+
+            <p class="light" align='justify'>Para modificar los datos de un paciente, nos dirigimos al apartado Expediente y ahí, tocamos el ícono de editar.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center black-text"><i class=" medium material-icons">filter_none</i></h2>
+            <h5 class="center">Modificar Cita</h5>
+
+            <p class="light" align='justify'>Para modificar los datos de una cita, nos dirigimos al apartado de crear una cita 
+              donde nos aparecera las citas activas en forma de cartas donde al tacarlas podremos modificarlas.</p>
+          </div>
+        </div>
+      </div>
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class=" medium material-icons">filter_1</i></h2>
+            <h5 class="center">Manejo de Datos de Consulta</h5>
+
+            <p class="light" align='justify'>Para visualizar los signos de vitales que la secretaria haya ingresado en ese momento y manejar la consulta medica (generar diagnostico y receta),
+              debemos buscar el icono definido (el de este apartado).</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class=" medium material-icons">date_range</i></h2>
+            <h5 class="center">Ver Cita en el Calendario [Mes]</h5>
+
+            <p class="light" align='justify'>Para visualizar las programadas en el mes, nos derigimos al panel de navegacion izquierdo y seleccionamos "agenda electronica"</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center black-text"><i class=" medium material-icons">date_range</i></h2>
+            <h5 class="center">Ver Cita en el Calendario [Día]</h5>
+
+            <p class="light" align='justify'>Para visualizar las citas programadas en el dia o semana, nos dirigimos a la agenda electronica y seleccionamos el boton Week o Day,
+              que hacen referencia a semana o dia respectivamente. Cuando se selecciona el boton de Dia (Day) se ve la cita con sus detalles, y para
+              navegar entre los dias debemos ubicanos en los botones "<" ">" (en la parte superior izquierda) donde tambien hay un boton para redirecccionarnos al dia actual (Today).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+         <div class="row center light z-depth-4">
+          <h5 class="header col s12 teal-text">CONTAMOS CON SALAS DE ANTENCION CON TECNOLOGIA ADECUADA PARA UN MEJOR SERVICIO</h5>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static 'img/clinica5.jpg' %}" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer cyan darken-1">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">MISIÓN</h5>
+          <p class="grey-text text-lighten-4" align ="align"> O' dentista es una organización que busca brindar una buena higiene bucal a todos nuestros clientes ofreciendo los mejores servicios. Contamos con la mayor experiencia en tratamientos médico-bucales
+          </p>
+        </div>
+        <div class="col l6 s12">
+          <h5 class="white-text">VISIÓN</h5>
+          <p class="grey-text text-lighten-4" align="justify">En O' Dentista buscamos ser la mejor organización de tratamiento e higiene bucal para ofrecer a nuestros clientes una gran experiencia en nuestros tratamientos. Buscamos expandir nuestra organización para poder llegar a todos los pacientes que nos necesiten.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Hecho por <a class="blue-text text-lighten-3">Carlos Campos | Daniel Chicas | José Cruz | René Galán | Oscar Pineda | Ana Rodríguez</a>
+      </div>
+    </div>
+  </footer>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'ico/tooth.png'%}">
+    <link rel="stylesheet" href="{% static 'css/style-login.css'%}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <img src="{% static 'Resources/fondo-clinica.svg' %}" class="fondo-login">
+
+    <div class="contenedor">
+
+        <div class="lema">
+            <h3>O DENTISTA</h3>
+            <h6>SOMOS EL PUENTE DE UNA NUEVA SONRISA</h6>
+        </div>
+        <section class="formulario-logueo">
+            <form method="POST">
+                {% csrf_token %}
+
+                <h4>INICIAR SESIÓN</h4>
+                <div class="input-personalizado">
+
+                    <span class="material-icons">person</span>
+                    {{form.username}}
+                </div>
+
+                <div class="input-personalizado">
+                    <span class="material-icons">vpn_key</span>
+                    {{form.password}}
+                </div>
+                
+                {% if form.errors %}
+                <div class="card-alert cajaError">
+                    
+                    <div class="title-error">
+                        <strong>¡UPS!</strong> El usuario o la contraseña no coinciden.
+                    </div>
+                    <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                {% endif %}
+
+                <button type="submit" class="boton">ENTRAR</button><br>
+            </form>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+    <script src="{% static 'js/funciones.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<div class="modal-content">
+    <h5 style="margin: 5px;">Consulta Médica</h5>
+    <ul class="collapsible">
+        <li>
+            <div class="collapsible-header"><i class="material-icons">description</i>Diagnostico</div>
+            <div class="collapsible-body">
+                <div class="row">
+                    <form class="col s8">
+                        {% csrf_token %}
+                        <div class="row">
+                            <input type="hidden" value="{{ ex.id_expediente }}" id="id_expediente">
+                            <input type="hidden" value="{{ ex.id_paciente }}" id="id_paciente">
+
+                            <div class="input-field col s6">
+                                <select id="tipo_consulta">
+                                    <option value="" disabled selected>Tipo de Consulta</option>
+                                    <option value="No Quirúrgica">No Quirúrgica</option>
+                                </select>
+                                <label>Tipo de Consulta</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <textarea id="diagnostico" class="materialize-textarea" data-length="120"></textarea>
+                                <label for="diagnostico">Escriba el Diagnostico</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">border_color</i>Receta</div>
+            <div class="collapsible-body">
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s8">
+                                <textarea id="receta" class="materialize-textarea"
+                                    data-length="120">Sin Receta</textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="input-field col s4">
+        <button data-target="confirmar" class="btn waves-effect waves-light modal-trigger">Guardar
+            <i class="material-icons right">send</i>
+        </button>
+
+        <!-- Modal Structure -->
+        <div id="confirmar" class="modal">
+            <div class="modal-content">
+                <h4>¿Desea Guardar los Datos?</h4>
+                <p>Los datos de {{ ex.id_paciente.nombres }} {{ ex.id_paciente.apellidos }}. Presione ESC si desea
+                    cancelar.</p>
+            </div>
+            <div class="modal-footer">
+                <a class="waves-effect waves-green btn-flat" type="submit" id="expedienteUpdateBtn">Guardar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('select').formSelect();
+        $('.collapsible').collapsible();
+        $('#confirmar').modal();
+    });
+
+    $(document).ready(function () {
+        $('#expedienteUpdateBtn').on('click', function (e) {
+            e.preventDefault();
+            let tipo_consulta = document.getElementById('tipo_consulta');
+            let diagnostico = document.getElementById('diagnostico');
+            let id_paciente = document.getElementById('id_paciente');
+            let receta = document.getElementById('receta');
+
+            if (tipo_consulta.value == "" || diagnostico.value == "") {
+                alert("Campos Vacios. Ingrese la información necesaria")
+            } else {
+                let id_expediente = document.getElementById('id_expediente');
+
+                $.ajax({
+                    url: '/doctor/ExpedienteUpdate/' + id_expediente.value,
+                    type: 'POST',
+                    data: {
+                        tipo_consulta: tipo_consulta.value,
+                        diagnostico: diagnostico.value,
+                        receta: receta.value,
+                        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                    },
+                    success: function () {
+                        function refresh() {
+                            return window.location = "/doctor/ExpedienteView/" + id_paciente
+                                .value
+                        }
+                        M.toast({
+                            html: 'Guardando...',
+                            classes: 'rounded'
+                        });
+                        setTimeout(refresh, 2000)
+
+                    }
+                });
+            }
+        });
+    });
+</script>

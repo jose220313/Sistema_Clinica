@@ -1,0 +1,33 @@
+{% for expediente in SignosVitales %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h4 >{{ expediente.id_paciente.nombres }} {{ expediente.id_paciente.apellidos }}</h4>
+        </div>
+        <div class="col s12">
+            <p><b>Peso: </b>{{ expediente.peso }}</p>
+        </div>
+        <div class="col s12">
+            <p><b>Pulso: </b>{{ expediente.pulso}}</p>
+        </div>
+        <div class="col s12">
+            <p><b>Temperatura: </b>{{ expediente.temperatura }}</p>
+        </div>
+        <div class="col s12">
+            <p><b>P. Arterial: </b>{{ expediente.presion_arterial}}</p><br>
+        </div>
+        <div class="col s12">
+            <p><b>Enferemades Pre. : </b>{{ expediente.enfermedades }}</p>
+        </div>
+        <div class="col s12">
+            <p><b>Alergias: </b>{{ expediente.alergias }}</p>
+        </div>
+        <div class="col s12">
+            <p><b>Medicamentos: </b>{{ expediente.medicamentos }}</p>
+        </div>
+    </div>
+</div>
+
+{% endfor %}

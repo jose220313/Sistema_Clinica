@@ -1,0 +1,9 @@
+<div class="modal-content">
+
+  <form method='POST' action="{% url 'BorrarCita' object.id_cita  %}">
+    {% csrf_token %}
+    <h4> ¿Deseas Eliminar la Cita?</h4>
+    <p>Se eliminara todos los datos de la cita de {{object.nombres}} {{object.apellidos}}. Si desea salir presione ESC.</p><br>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Eliminar</button>
+  </form>
+</div>
